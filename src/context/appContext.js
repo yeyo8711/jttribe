@@ -2,7 +2,8 @@ import { createContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { chainIds } from "../constants/chainId";
 import { getChainId } from "../utils";
-import { abi } from "../contracts/abi.json";
+import abi from "../contracts/abi.json";
+
 // import {} from "../contracts/abi.json" secondary abi
 
 export const AppContext = createContext();
@@ -11,8 +12,8 @@ const ContextProvider = ({ children }) => {
   const contracAddress = "";
   console.log(abi);
 
-  const staticProvider = new ethers.provider.JsonRpcProvider(`url`);
-  const staticContract = new ethers.Contract(`address`, abi, `provider`);
+  // const staticProvider = new ethers.providers.JsonRpcProvider(`url`)();
+  // const staticContract = new ethers.Contract(`address`, abi, `provider`);
 
   const readOnlyTokenContrac = "token";
   const [userAddress, setUserAddress] = useState(null);
@@ -42,7 +43,8 @@ const ContextProvider = ({ children }) => {
         setNetwork,
         signer,
         setSigner,
-      }}>
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
