@@ -60,14 +60,18 @@ const Header = () => {
   };
 
   return (
-    <div className='flex justify-end h-14 w-full p-3 text-black bg-gray-400'>
-      <button
-        onClick={connectWallet}
-        className='p-2 flex justify-center items-center bg-blue-400'>
-        {userAddress !== null ? shortUserAddress : "Connect Wallet"}
-      </button>
-      <script src='https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js'></script>
-    </div>
+    <header className="w-full flex justify-center text-white bg-[#1d1d1d]">
+      <div className="max-w-screen-2xl text-white flex justify-between items-center w-full p-3">
+        <h1 className="text-xl">Logo</h1>
+
+        <button
+          onClick={connectWallet}
+          className="border-2 border-gray-800 rounded-lg px-3 py-2 text-gray-400 cursor-pointer hover:bg-gray-800 hover:text-gray-200"
+        >
+          {userAddress !== null ? shortUserAddress : "Connect Wallet"}
+        </button>
+      </div>
+    </header>
   );
 };
 export default Header;
