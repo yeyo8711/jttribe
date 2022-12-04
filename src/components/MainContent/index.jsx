@@ -10,7 +10,7 @@ const Main = () => {
         <div class="bg-[#0399FC] rounded-2xl text-white p-8 text-center h-72 max-w-sm mx-auto">
           <p class="text-lg font-Carter">
             Vesting, Shells, Eggs, Incubations, Rewards & the best mascot since
-            Mickey Mouse. $FRED 🐢 will lead the 1st ever Partner Progression
+            Mickey Mouse. $FRED 🐢 will lead the first ever Partner Progression
             Platform on BNB Chain!
           </p>
         </div>
