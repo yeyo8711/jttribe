@@ -29,7 +29,7 @@ const Main = () => {
           <span className="flex font-Francois items-center rounded-full w-24  justify-center mx-auto mt-2 mb-2">
             #FTT 💚
           </span>
-          <button class="rounded-md font-Francois text-[#075424] bg-[#b8e220] text-xl pt-3 pb-4 px-8 inline">
+          <button class="rounded-md font-Francois text-[#075424] bg-[#b8e220] hover:bg-[#9bc504] ease-in-out duration-300 text-xl pt-3 pb-4 px-8 inline">
             Enter Presale
           </button>
         </div>

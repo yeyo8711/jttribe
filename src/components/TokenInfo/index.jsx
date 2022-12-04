@@ -11,7 +11,7 @@ const TokenInfo = () => {
 
             <button
               type="button"
-              class=" inline-block font-Carter px-6 py-2.5 text-[#075424] bg-[#b8e220] font-medium text-xs leading-tight uppercase rounded shadow-md  focus:outline-none focus:ring-0 active:bg-[#779706] active:shadow-lg transition duration-150 ease-in-out"
+              class=" inline-block font-Carter px-6 py-2.5 text-[#075424] bg-[#b8e220] hover:bg-[#c8ee3e] font-medium text-xs leading-tight uppercase rounded shadow-md  focus:outline-none focus:ring-0 active:bg-[#779706] active:shadow-lg transition duration-150 ease-in-out"
             >
               Claim Tokens
             </button>
