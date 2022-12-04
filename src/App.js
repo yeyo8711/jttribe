@@ -7,14 +7,19 @@ import TokenInfo from "./components/TokenInfo";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useContext } from "react";
+import { AppContext } from "./context/appContext";
+
 // const hello = process.env.REACT_APP_TEST_VARIABLE;
 
 function App() {
+  const { userAddress } = useContext(AppContext); // no auto-completion?
+
   return (
     <>
       <Header />
       <Banner />
-      {true ? <Main /> : <TokenInfo />}
+      {userAddress == null ? <Main /> : <TokenInfo />}
       <Stats />
       <Footer />
       <ToastContainer />

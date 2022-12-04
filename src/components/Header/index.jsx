@@ -65,18 +65,23 @@ const Header = () => {
 
   return (
     <header className="w-full flex justify-center text-white bg-[#025522]">
-      <div className="max-w-screen-2xl text-white flex justify-between items-center w-full p-3">
-        <h1 className="text-xl" onClick={notify}>
+      <div className="max-w-screen-xl text-white flex justify-between items-center w-full p-3">
+        <h1
+          className="text-2xl flex justify-center gap-3 items-center font-Carter "
+          onClick={notify}
+        >
           <img
             class="w-12 h-12 object-cover rounded-full mx-auto shadow-lg"
             src={FTTProfile}
             alt="User avatar"
           />
+          <h2 className="flex sm:hidden">FTT</h2>
+          <h2 className="hidden sm:flex">Fred The Turtle</h2>
         </h1>
 
         <button
           onClick={connectWallet}
-          className="border border-[#3395b9] rounded-lg px-3 py-2 text-[#025522] cursor-pointer bg-[#7BDCFE]"
+          className="border-2 border-[#55c3ea] hover:bg-[#569db7] transition-all ease-in-out dua rounded-lg px-3 py-2 text-[#025522] cursor-pointer bg-[#7BDCFE]"
         >
           {userAddress !== null ? shortUserAddress : "Connect Wallet"}
         </button>
