@@ -76,7 +76,7 @@ const Header = () => {
 
         <button
           onClick={connectWallet}
-          className="border-2 border-gray-800 rounded-lg px-3 py-2 text-gray-400 cursor-pointer hover:bg-gray-800 hover:text-gray-200"
+          className="border border-[#3395b9] rounded-lg px-3 py-2 text-[#025522] cursor-pointer bg-[#7BDCFE]"
         >
           {userAddress !== null ? shortUserAddress : "Connect Wallet"}
         </button>

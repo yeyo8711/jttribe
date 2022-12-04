@@ -23,7 +23,7 @@ const Main = () => {
             src={FTTProfile}
             alt="User avatar"
           />
-          <span className="flex mt-5 items-center border rounded-full w-24  justify-center mx-auto">
+          <span className="flex mt-5 items-center rounded-full w-24  justify-center mx-auto">
             $FRED 🐢
           </span>
           <span className="flex items-center rounded-full w-24  justify-center mx-auto mt-2 mb-2">
