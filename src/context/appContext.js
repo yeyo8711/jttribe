@@ -29,9 +29,9 @@ const ContextProvider = ({ children }) => {
     getId();
 
     /**Listen to changes in the network and sets the new value */
-    window.ethereum.on("chainChanged", (chainId) => {
-      setNetwork(chainIds[+chainId]);
-    });
+    // window.ethereum.on("chainChanged", (chainId) => {
+    //   setNetwork(chainIds[+chainId]);
+    // });
   }, []);
 
   return (
