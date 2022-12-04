@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
+import FTTProfile from "../../assets/FFTProfile.png";
 
 import { shortAddress } from "../../utils";
 import { AppContext } from "../../context/appContext";
+import { toast, ToastContainer } from "react-toastify";
 
 const Header = () => {
   const [shortUserAddress, setShortUserAddress] = useState();
   const { userAddress, setUserAddress, setSigner } = useContext(AppContext); // no auto-completion?
+
+  const notify = () => toast("Wow so easy!");
 
   useEffect(() => {
     if (window.ethereum === undefined) return;
@@ -60,9 +64,15 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full flex justify-center text-white bg-[#1d1d1d]">
+    <header className="w-full flex justify-center text-white bg-[#025522]">
       <div className="max-w-screen-2xl text-white flex justify-between items-center w-full p-3">
-        <h1 className="text-xl">Logo</h1>
+        <h1 className="text-xl" onClick={notify}>
+          <img
+            class="w-12 h-12 object-cover rounded-full mx-auto shadow-lg"
+            src={FTTProfile}
+            alt="User avatar"
+          />
+        </h1>
 
         <button
           onClick={connectWallet}

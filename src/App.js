@@ -4,18 +4,21 @@ import Header from "./components/Header";
 import Main from "./components/MainContent";
 import Stats from "./components/Stats";
 import TokenInfo from "./components/TokenInfo";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // const hello = process.env.REACT_APP_TEST_VARIABLE;
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Banner />
-      {false ? <Main /> : <TokenInfo />}
-
+      {true ? <Main /> : <TokenInfo />}
       <Stats />
       <Footer />
-    </div>
+      <ToastContainer />
+    </>
   );
 }
 

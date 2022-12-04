@@ -4,7 +4,7 @@ const TokenInfo = () => {
       <div class="max-w-screen-2xl w-full flex justify-center items-center">
         <div class="block rounded-lg shadow-lg bg-white text-center">
           <div class="py-3 px-6 border-b font-semibold border-gray-300">
-            Your $FTT Balance: 134.324
+            Your $FRED Balance: 134.324
           </div>
           <div class="p-6">
             <div className="w-72 sm:w-[400px] h-52 bg-orange-600 mb-5 rounded-xl"></div>
