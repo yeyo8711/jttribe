@@ -10,7 +10,7 @@ const Stats = () => {
             </p>
           </div>
           <div class="text-center md:border-r">
-            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">5M</h6>
+            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl">4M</h6>
             <p class="text-sm font-medium tracking-widest  uppercase lg:text-base">
               Tokens
             </p>
