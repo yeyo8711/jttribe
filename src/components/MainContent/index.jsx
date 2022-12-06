@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context/appContext";
-import FTTProfile from "../../assets/FFTProfile.png";
+import chest from "../../assets//chest.png";
+import rich from "../../assets/rich.png";
+import poor from "../../assets/poor.png";
 
 const Main = () => {
   const { userAddress, netWork } = useContext(AppContext);
   return (
     <div className="w-full py-10 flex justify-center items-center">
-      <div class="mx-5 grid place-content-center">
+      <div class="max-w-screen-2xl relative w-full mx-5 grid place-content-center">
         <div class="bg-[#0399FC] rounded-2xl text-white p-8 text-center h-72 max-w-sm mx-auto">
           <p class="text-lg font-Carter">
             Vesting, Shells, Eggs, Incubations, Rewards & the best mascot since
@@ -19,8 +21,8 @@ const Main = () => {
             fred the turtle
           </h2>
           <img
-            class="w-20 h-20 object-cover rounded-full mx-auto shadow-lg"
-            src={FTTProfile}
+            class="w-24 h-24 rounded-full mx-auto"
+            src={chest}
             alt="User avatar"
           />
           <span className="flex font-Francois mt-5 items-center rounded-full w-24  justify-center mx-auto">
@@ -33,6 +35,17 @@ const Main = () => {
             Enter Presale
           </button>
         </div>
+
+        <img
+          src={poor}
+          alt=""
+          className="hidden lg:flex absolute top-[15%] left-0"
+        />
+        <img
+          src={rich}
+          alt=""
+          className="hidden lg:flex absolute top-[15%] right-0"
+        />
       </div>
     </div>
   );

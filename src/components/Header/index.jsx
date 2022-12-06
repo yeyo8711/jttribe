@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
-import FTTProfile from "../../assets/FFTProfile.png";
+import FTTProfile from "../../assets/logo.png";
 
 import { shortAddress } from "../../utils";
 import { AppContext } from "../../context/appContext";

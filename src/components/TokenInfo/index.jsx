@@ -1,3 +1,5 @@
+import fred from "../../assets/swimming.png";
+
 const TokenInfo = () => {
   return (
     <section className="w-full flex justify-center min-h-[70vh]">
@@ -7,7 +9,9 @@ const TokenInfo = () => {
             Your $FRED Balance: 134.324
           </div>
           <div class="p-6">
-            <div className="w-72 sm:w-[400px] h-52 bg-white mb-5 rounded-xl"></div>
+            <div className="w-72 sm:w-[400px] mb-5 rounded-xl">
+              <img src={fred} alt="" />
+            </div>
 
             <button
               type="button"

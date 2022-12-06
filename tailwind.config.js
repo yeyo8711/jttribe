@@ -8,5 +8,5 @@ module.exports = {
       Francois: ["Francois One", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
