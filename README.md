@@ -1,4 +1,0 @@
--Ethers
--Tailwind
--Dotenv
--Theme Provider

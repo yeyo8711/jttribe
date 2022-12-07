@@ -42,8 +42,8 @@ const TokenInfo = () => {
     );
 
     const available = await presaleContract.vestingRegistry(userAddress);
-    console.log(ethers.utils.formatUnits(available._amount, 0));
-    setBalance(ethers.utils.formatUnits(available._amount, 0));
+    console.log(ethers.utils.formatEther(available._amount, 0));
+    setBalance(ethers.utils.formatEther(available._amount));
   };
 
   const claimTokens = async () => {
@@ -65,7 +65,7 @@ const TokenInfo = () => {
   };
 
   return (
-    <section className="w-full flex justify-center min-h-[70vh]">
+    <section className="w-full py-10 sm:py-20 flex justify-center min-h-[70vh]">
       <div className="max-w-screen-2xl w-full flex justify-center items-center">
         <div className="block rounded-lg shadow-lg bg-[#91af25] text-center">
           <div className="py-3 px-6 border-b bg-[#12883f] text-white rounded-tl-lg rounded-tr-lg font-Carter text-[#075424]' border-gray-300">
@@ -85,7 +85,7 @@ const TokenInfo = () => {
             </button>
           </div>
           <div className="py-3 flex justify-center items-center px-6 border-t bg-[#f7f7f7] boder-rounde font-Francois border-gray-300 text-gray-600 rounded-bl-lg rounded-br-lg">
-            Awailable to claim:{" "}
+            Available to claim:{" "}
             <p className="text-[#075424] font-semibold ml-3">
               {availableTokens}
             </p>

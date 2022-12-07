@@ -39,7 +39,7 @@ const Main = () => {
   };
 
   return (
-    <div className="w-full py-10 flex justify-center items-center">
+    <div className="w-full py-10 sm:py-20 flex justify-center items-center">
       <div className="max-w-screen-2xl relative w-full mx-5 grid place-content-center">
         <div className="bg-[#0399FC] rounded-2xl text-white p-8 text-center h-72 max-w-sm mx-auto">
           <p className="text-lg font-Carter">
