@@ -1,28 +1,94 @@
+import { ethers } from "ethers";
+import { useContext, useEffect, useState } from "react";
 import fred from "../../assets/swimming.png";
+import { AppContext } from "../../context/appContext";
+import presaleAbi from "../../contracts/presale.json";
 
 const TokenInfo = () => {
+  const { userAddress, signer } = useContext(AppContext);
+  const presaleAddress = "0x1374d424b8b45d6E5F57a7Ba640a309eBF709c2A";
+
+  const [availableTokens, setAvailableTokens] = useState(0);
+  const [balance, setBalance] = useState(0);
+
+  const presaleContract = new ethers.Contract(
+    presaleAddress,
+    presaleAbi,
+    signer
+  );
+
+  useEffect(() => {
+    getAvailableTokens();
+    getUserBalance();
+  });
+
+  const getAvailableTokens = async () => {
+    const presaleContract = new ethers.Contract(
+      presaleAddress,
+      presaleAbi,
+      signer
+    );
+
+    const available = await presaleContract.checkAvailableTokens();
+    console.log(ethers.utils.formatUnits(available, 0));
+    setAvailableTokens(ethers.utils.formatUnits(available, 0));
+  };
+
+  const getUserBalance = async () => {
+    const presaleContract = new ethers.Contract(
+      presaleAddress,
+      presaleAbi,
+      signer
+    );
+
+    const available = await presaleContract.vestingRegistry(userAddress);
+    console.log(ethers.utils.formatUnits(available._amount, 0));
+    setBalance(ethers.utils.formatUnits(available._amount, 0));
+  };
+
+  const claimTokens = async () => {
+    console.log("claim");
+
+    const presaleContract = new ethers.Contract(
+      presaleAddress,
+      presaleAbi,
+      signer
+    );
+
+    const available = await presaleContract.presaleSpots();
+    console.log(ethers.utils.formatUnits(available, 0));
+    try {
+      const tnx2 = await presaleContract.claimTokens();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section className="w-full flex justify-center min-h-[70vh]">
-      <div class="max-w-screen-2xl w-full flex justify-center items-center">
-        <div class="block rounded-lg shadow-lg bg-[#91af25] text-center">
-          <div class="py-3 px-6 border-b bg-[#12883f] text-white rounded-tl-lg rounded-tr-lg font-Carter text-[#075424]' border-gray-300">
-            Your $FRED Balance: 134.324
+      <div className="max-w-screen-2xl w-full flex justify-center items-center">
+        <div className="block rounded-lg shadow-lg bg-[#91af25] text-center">
+          <div className="py-3 px-6 border-b bg-[#12883f] text-white rounded-tl-lg rounded-tr-lg font-Carter text-[#075424]' border-gray-300">
+            Your $FRED Balance: <br /> {balance}
           </div>
-          <div class="p-6">
+          <div className="p-6">
             <div className="w-72 sm:w-[400px] mb-5 rounded-xl">
               <img src={fred} alt="" />
             </div>
 
             <button
+              onClick={claimTokens}
               type="button"
-              class=" inline-block font-Carter px-6 py-2.5 text-[#075424] bg-[#b8e220] hover:bg-[#c8ee3e] font-medium text-xs leading-tight uppercase rounded shadow-md  focus:outline-none focus:ring-0 active:bg-[#779706] active:shadow-lg transition duration-150 ease-in-out"
+              className=" inline-block font-Carter px-6 py-2.5 text-[#075424] bg-[#b8e220] hover:bg-[#c8ee3e] font-medium text-xs leading-tight uppercase rounded shadow-md  focus:outline-none focus:ring-0 active:bg-[#779706] active:shadow-lg transition duration-150 ease-in-out"
             >
               Claim Tokens
             </button>
           </div>
-          <div class="py-3 flex justify-center items-center px-6 border-t bg-[#f7f7f7] boder-rounde font-Francois border-gray-300 text-gray-600 rounded-bl-lg rounded-br-lg">
+          <div className="py-3 flex justify-center items-center px-6 border-t bg-[#f7f7f7] boder-rounde font-Francois border-gray-300 text-gray-600 rounded-bl-lg rounded-br-lg">
             Awailable to claim:{" "}
-            <p className="text-[#075424] font-semibold ml-3">84.972</p>
+            <p className="text-[#075424] font-semibold ml-3">
+              {availableTokens}
+            </p>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const Header = () => {
   const [shortUserAddress, setShortUserAddress] = useState();
   const { userAddress, setUserAddress, setSigner } = useContext(AppContext); // no auto-completion?
 
-  const notify = () => toast("Wow so easy!");
+  const notify = () => toast.info("Install Metamask!");
 
   useEffect(() => {
     if (window.ethereum === undefined) return;
@@ -50,7 +50,7 @@ const Header = () => {
   }, []);
 
   const connectWallet = async () => {
-    if (!window.ethereum) return console.log("install metamask!");
+    if (!window.ethereum) return notify();
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     try {
@@ -58,6 +58,7 @@ const Header = () => {
       const signer = provider.getSigner();
       console.log("header signer", signer);
       setUserAddress(accounts[0]);
+      window.location.reload();
     } catch (error) {
       window.alert("wallet connection denied");
     }
@@ -66,12 +67,9 @@ const Header = () => {
   return (
     <header className="w-full flex justify-center text-white bg-[#025522]">
       <div className="max-w-screen-xl text-white flex justify-between items-center w-full p-3">
-        <h1
-          className="text-2xl flex justify-center gap-3 items-center font-Carter "
-          onClick={notify}
-        >
+        <h1 className="text-2xl flex justify-center gap-3 items-center font-Carter ">
           <img
-            class="w-12 h-12 object-cover rounded-full mx-auto shadow-lg"
+            className="w-12 h-12 object-cover rounded-full mx-auto shadow-lg"
             src={FTTProfile}
             alt="User avatar"
           />
