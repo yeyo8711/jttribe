@@ -44,8 +44,12 @@ function App() {
 
   const getSlots = async () => {
     const slots = await readContract.presaleSpots();
-    console.log(ethers.utils.formatUnits(slots, 0));
-    setSpots(ethers.utils.formatUnits(slots, 0));
+    const slots1 = await readContract.whitelListSpots();
+    const totalSpots =
+      Number(ethers.utils.formatUnits(slots, 0)) +
+      Number(ethers.utils.formatUnits(slots1, 0));
+
+    setSpots(totalSpots);
   };
 
   useEffect(() => {
