@@ -1,11 +1,10 @@
-import Banner from "./components/Banner1";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Stats from "./components/Stats";
 import TokenInfo from "./components/TokenInfo";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "./context/appContext";
@@ -14,7 +13,7 @@ import { ethers } from "ethers";
 import Banner1 from "./components/Banner1";
 import Banner2 from "./components/Banner2";
 
-const presaleAddress = "0x1374d424b8b45d6E5F57a7Ba640a309eBF709c2A";
+const presaleAddress = "0x6D7bd7D120c4BC3d8480d0ac29F337d35E6C5996";
 
 function App() {
   const { userAddress, signer } = useContext(AppContext); // no auto-completion?
@@ -22,7 +21,7 @@ function App() {
   const [spots, setSpots] = useState(150);
 
   const staticProvider = new ethers.providers.JsonRpcProvider(
-    "https://rpc.ankr.com/bsc_testnet_chapel"
+    "https://rpc.ankr.com/bsc"
   );
 
   const readContract = new ethers.Contract(

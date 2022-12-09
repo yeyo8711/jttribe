@@ -6,7 +6,7 @@ import presaleAbi from "../../contracts/presale.json";
 
 const TokenInfo = () => {
   const { userAddress, signer } = useContext(AppContext);
-  const presaleAddress = "0x1374d424b8b45d6E5F57a7Ba640a309eBF709c2A";
+  const presaleAddress = "0x6D7bd7D120c4BC3d8480d0ac29F337d35E6C5996";
 
   const [availableTokens, setAvailableTokens] = useState(0);
   const [balance, setBalance] = useState(0);
