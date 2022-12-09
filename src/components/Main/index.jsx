@@ -17,11 +17,13 @@ const Main = () => {
 
   const buyPresale = async () => {
     const busdContract = new ethers.Contract(busdAddress, busdAbi, signer);
+
     const presaleContract = new ethers.Contract(
       presaleAddress,
       presaleAbi,
       signer
     );
+    console.log(presaleContract);
 
     try {
       const tnx = await busdContract.approve(
@@ -35,7 +37,6 @@ const Main = () => {
     } catch (error) {
       console.log(error);
     }
-    // buy
   };
 
   return (
