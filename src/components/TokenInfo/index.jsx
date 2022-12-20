@@ -8,7 +8,7 @@ const TokenInfo = () => {
   const { address } = useAccount();
   const { data: signer } = useSigner();
 
-  const presaleAddress = "0x6D7bd7D120c4BC3d8480d0ac29F337d35E6C5996";
+  const presaleAddress = "0xB95947a52D043A739515958B8638BA36709d6C71";
 
   const [availableTokens, setAvailableTokens] = useState(0);
   const [balance, setBalance] = useState(0);
