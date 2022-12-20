@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context/appContext";
+import React from "react";
 import chest from "../../assets//chest.png";
 import rich from "../../assets/rich.png";
 import poor from "../../assets/poor.png";
@@ -7,13 +6,13 @@ import { ethers } from "ethers";
 
 import busdAbi from "../../contracts/busd.json";
 import presaleAbi from "../../contracts/presale.json";
+import { useSigner } from "wagmi";
 
 const busdAddress = "0xe9e7cea3dedca5984780bafc599bd69add087d56";
 const presaleAddress = "0x6D7bd7D120c4BC3d8480d0ac29F337d35E6C5996";
 
 const Main = () => {
-  const { userAddress, netWork, signer } = useContext(AppContext);
-  console.log(presaleAbi);
+  const { data: signer } = useSigner();
 
   const buyPresale = async () => {
     const busdContract = new ethers.Contract(busdAddress, busdAbi, signer);
@@ -23,12 +22,11 @@ const Main = () => {
       presaleAbi,
       signer
     );
-    console.log(presaleContract);
 
     try {
       const tnx = await busdContract.approve(
         presaleAddress,
-        "110000000000000000000"
+        "60000000000000000000"
       );
       await tnx.wait();
       const tnx2 = await presaleContract.buyPresaleSlot();

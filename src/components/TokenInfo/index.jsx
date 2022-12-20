@@ -1,26 +1,21 @@
 import { ethers } from "ethers";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useAccount, useSigner } from "wagmi";
 import fred from "../../assets/swimming.png";
-import { AppContext } from "../../context/appContext";
 import presaleAbi from "../../contracts/presale.json";
 
 const TokenInfo = () => {
-  const { userAddress, signer } = useContext(AppContext);
+  const { address } = useAccount();
+  const { data: signer } = useSigner();
+
   const presaleAddress = "0x6D7bd7D120c4BC3d8480d0ac29F337d35E6C5996";
 
   const [availableTokens, setAvailableTokens] = useState(0);
   const [balance, setBalance] = useState(0);
 
-  const presaleContract = new ethers.Contract(
-    presaleAddress,
-    presaleAbi,
-    signer
-  );
-
   useEffect(() => {
     getAvailableTokens();
     getUserBalance();
-    console.log(userAddress, balance);
   });
 
   const getAvailableTokens = async () => {
@@ -42,23 +37,19 @@ const TokenInfo = () => {
       signer
     );
 
-    const available = await presaleContract.vestingRegistry(userAddress);
+    const available = await presaleContract.vestingRegistry(address);
     setBalance(Number(ethers.utils.formatEther(available._amount, 0)));
   };
 
   const claimTokens = async () => {
-    console.log("claim");
-
     const presaleContract = new ethers.Contract(
       presaleAddress,
       presaleAbi,
       signer
     );
 
-    const available = await presaleContract.presaleSpots();
-    console.log(ethers.utils.formatUnits(available, 0));
     try {
-      const tnx2 = await presaleContract.claimTokens();
+      await presaleContract.claimTokens();
     } catch (error) {
       console.log(error);
     }
