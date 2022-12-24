@@ -18,7 +18,7 @@ const Header = () => {
             src={FTTProfile}
             alt="User avatar"
           />
-          <h2 className="flex sm:hidden">FTT</h2>
+          <h2 className="flex sm:hidden">Fred</h2>
           <h2 className="hidden sm:flex">Fred The Turtle</h2>
         </h1>
         {isConnected ? (

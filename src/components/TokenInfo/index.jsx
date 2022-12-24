@@ -16,7 +16,7 @@ const TokenInfo = () => {
   useEffect(() => {
     getAvailableTokens();
     getUserBalance();
-  });
+  }, []);
 
   const getAvailableTokens = async () => {
     const presaleContract = new ethers.Contract(
@@ -25,9 +25,10 @@ const TokenInfo = () => {
       signer
     );
 
-    const available = await presaleContract.checkAvailableTokens();
-    console.log(ethers.utils.formatUnits(available, 0));
-    setAvailableTokens(ethers.utils.formatUnits(available, 0));
+    const available = await presaleContract.checkAvailableTokens(address);
+    setAvailableTokens(
+      Number(ethers.utils.formatEther(available, 0)).toFixed(2)
+    );
   };
 
   const getUserBalance = async () => {
@@ -60,7 +61,7 @@ const TokenInfo = () => {
       <div className="max-w-screen-2xl w-full flex justify-center items-center">
         <div className="block rounded-lg shadow-lg bg-[#91af25] text-center">
           <div className="py-3 px-6 border-b bg-[#12883f] text-white rounded-tl-lg rounded-tr-lg font-Carter text-[#075424]' border-gray-300">
-            Your $FRED Balance: <br /> {balance}
+            Your vested $FRED Balance: <br /> {balance}
           </div>
           <div className="p-6">
             <div className="w-72 sm:w-[400px] mb-5 rounded-xl">

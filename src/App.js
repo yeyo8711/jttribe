@@ -84,7 +84,7 @@ function App() {
   return (
     <WagmiConfig client={wagmiClient}>
       <Header />
-      {bought ? (
+      {true ? (
         <React.Fragment>
           <Banner2 />
           <TokenInfo />
