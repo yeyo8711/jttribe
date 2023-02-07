@@ -1,7 +1,5 @@
 import React from "react";
-
-import FTTProfile from "../../assets/logo.png";
-
+import "./index.css";
 import { Web3Button } from "@web3modal/react";
 
 import { useAccount } from "wagmi";
@@ -10,19 +8,20 @@ const Header = () => {
   const { address, isConnected } = useAccount();
 
   return (
-    <header className="w-full flex justify-center text-white bg-[#025522]">
-      <div className="max-w-screen-xl text-white flex justify-between items-center w-full p-3">
-        <h1 className="text-2xl flex justify-center gap-3 items-center font-Carter ">
-          <img
-            className="w-12 h-12 object-cover rounded-full mx-auto shadow-lg"
-            src={FTTProfile}
-            alt="User avatar"
-          />
-          <h2 className="flex sm:hidden">Fred</h2>
-          <h2 className="hidden sm:flex">Fred The Turtle</h2>
-        </h1>
+    <header className='header-main'>
+      <div className='header-title'>
+        <h1>JT-Tribe</h1>
+      </div>
+      <div className='header-sections'>
+        <h1>Home</h1>
+        <h1>About</h1>
+        <h1>Roadmap</h1>
+        <h1>Artist</h1>
+        <h1>Team</h1>
+      </div>
+      <div className='header-button'>
         {isConnected ? (
-          <div className="border-2 border-[#55c3ea] hover:bg-[#569db7] transition-all ease-in-out dua rounded-lg px-3 py-2 text-[#025522] cursor-pointer bg-[#7BDCFE]">
+          <div className='wallet'>
             {address.slice(0, 4) + " . . . " + address.slice(-4)}
           </div>
         ) : (

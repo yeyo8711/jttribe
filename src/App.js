@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import Stats from "./components/Stats";
-import TokenInfo from "./components/TokenInfo";
-
-import presaleAbi from "./contracts/presale.json";
 import { ethers } from "ethers";
-import Banner1 from "./components/Banner1";
-import Banner2 from "./components/Banner2";
-
+import OurSpecialty from "./components/OurSpecialty";
 import { useAccount } from "wagmi";
-
+import AboutUs from "./components/AboutUs";
 import {
   EthereumClient,
   modalConnectors,
@@ -19,87 +12,45 @@ import {
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { bsc } from "wagmi/chains";
+import { mainnet } from "wagmi/chains";
+import OurCollection from "./components/OurCollection";
+import Footer from "./components/Footer";
 
-const presaleAddress = "0xB95947a52D043A739515958B8638BA36709d6C71";
+const mintContract = "0xBA00E8CDE3DE3172910421C353196A66CA9C7F2E";
 
 function App() {
-  const chains = [bsc];
+  const chains = [mainnet];
   const { address } = useAccount();
 
   // Wagmi client
   const { provider } = configureChains(
-    [bsc],
+    [mainnet],
     [walletConnectProvider({ projectId: "a2427e0c1e47f2fdf878366cb31eaf25" })]
   );
 
   const wagmiClient = createClient({
     autoConnect: true,
-    connectors: modalConnectors({ appName: "Fred Presale", chains }),
+    connectors: modalConnectors({ appName: "JTribe", chains }),
     provider,
   });
 
   // Web3Modal Ethereum Client
   const ethereumClient = new EthereumClient(wagmiClient, chains);
 
-  const [bought, setBought] = useState(false);
-  const [spots, setSpots] = useState(200);
-
   const staticProvider = new ethers.providers.JsonRpcProvider(
-    "https://rpc.ankr.com/bsc"
+    "https://rpc.ankr.com/eth"
   );
-
-  const readContract = new ethers.Contract(
-    presaleAddress,
-    presaleAbi,
-    staticProvider
-  );
-
-  const presaleContract = new ethers.Contract(
-    presaleAddress,
-    presaleAbi,
-    staticProvider
-  );
-
-  const getInfo = async () => {
-    const buyBool = await presaleContract.hasPurchased(address);
-    setBought(buyBool);
-  };
-
-  const getSlots = async () => {
-    const slots = await readContract.presaleSpots();
-    const slots1 = await readContract.whitelListSpots();
-    const totalSpots =
-      Number(ethers.utils.formatUnits(slots, 0)) +
-      Number(ethers.utils.formatUnits(slots1, 0));
-
-    setSpots(totalSpots);
-  };
-
-  useEffect(() => {
-    getInfo();
-    getSlots();
-  });
 
   return (
     <WagmiConfig client={wagmiClient}>
       <Header />
-      {true ? (
-        <React.Fragment>
-          <Banner2 />
-          <TokenInfo />
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Banner1 spots={spots} />
-          <Main />
-        </React.Fragment>
-      )}
-      <Stats />
+      <Main />
+      <OurSpecialty />
+      <AboutUs />
+      <OurCollection />
       <Footer />
-
       <Web3Modal
-        projectId="a2427e0c1e47f2fdf878366cb31eaf25"
+        projectId='1db7e84d451b8724016f1839cd914abd'
         ethereumClient={ethereumClient}
       />
     </WagmiConfig>

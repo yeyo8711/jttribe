@@ -1,0 +1,42 @@
+.aboutus {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin: 60px 20px;
+}
+.aboutus-left {
+  min-width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: end;
+  margin: 15px;
+}
+.aboutus-right {
+  min-width: 40%;
+  height: 100%;
+}
+.aboutus-image {
+  max-width: 300px;
+
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: rgba(197, 195, 195, 0.35) 0px 5px 15px;
+}
+.aboutus-title {
+  font-size: 100px;
+  color: white;
+  font-weight: 900;
+}
+.aboutus-text {
+  font-size: 25px;
+  color: white;
+  margin-left: 10px;
+}
+.aboutus-btn {
+  height: 60px;
+  width: 120px;
+  margin: 10px 10px;
+  font-size: 20px;
+}

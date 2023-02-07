@@ -1,30 +1,28 @@
-import FTTProfile from "../../assets/FFTProfile.png";
+import React from "react";
+import "./index.css";
+import { SocialIcon } from "react-social-icons";
 
 const Footer = () => {
   return (
-    <section>
-      <footer
-        aria-label="Site  Footer"
-        className="bg-[#025522] border-t border-gray-200"
-      >
-        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-between items-center">
-            <div className="flex font-Carter justify-center gap-3 items-center font-semibold text-white text-xl">
-              <img
-                className="w-12 h-12 object-cover rounded-full"
-                src={FTTProfile}
-                alt="User avatar"
-              />
-              <h2>Fred The Turtle</h2>
-            </div>
-
-            <p className="mt-4 font-Carter text-center text-sm text-white lg:mt-0 lg:text-right">
-              Copyright &copy; 2022. All rights reserved.
-            </p>
-          </div>
+    <div>
+      <div className='footer-title'>
+        Join our community and get early access
+      </div>
+      <div className='footer-icon-holder'>
+        <div className='footer-icon'>
+          <SocialIcon network='instagram' />
         </div>
-      </footer>
-    </section>
+        <div>
+          <SocialIcon network='facebook' />
+        </div>
+        <div>
+          <SocialIcon network='twitter' />
+        </div>
+        <div>
+          <SocialIcon network='discord' />
+        </div>
+      </div>
+    </div>
   );
 };
 

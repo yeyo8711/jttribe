@@ -1,85 +1,46 @@
-import React from "react";
-import chest from "../../assets//chest.png";
-import rich from "../../assets/rich.png";
-import poor from "../../assets/poor.png";
+import React, { useState } from "react";
 import { ethers } from "ethers";
-
-import busdAbi from "../../contracts/busd.json";
-import presaleAbi from "../../contracts/presale.json";
 import { useSigner } from "wagmi";
-
-const busdAddress = "0xe9e7cea3dedca5984780bafc599bd69add087d56";
-const presaleAddress = "0xB95947a52D043A739515958B8638BA36709d6C71";
+import "./main.css";
+import PresalePicture from "../../assets/presale.jpeg";
 
 const Main = () => {
   const { data: signer } = useSigner();
+  const [mintAmount, setMintAmount] = useState(1);
 
-  const buyPresale = async () => {
-    const busdContract = new ethers.Contract(busdAddress, busdAbi, signer);
-
-    const presaleContract = new ethers.Contract(
-      presaleAddress,
-      presaleAbi,
-      signer
-    );
-
-    try {
-      const tnx = await busdContract.approve(
-        presaleAddress,
-        "60000000000000000000"
-      );
-      await tnx.wait();
-      const tnx2 = await presaleContract.buyPresaleSlot();
-      await tnx2.wait();
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
+  const handleAmountChange = (change) => {
+    if (change === -1) {
+      if (mintAmount < 2) return;
+      setMintAmount(mintAmount - 1);
+    } else if (change === +1) setMintAmount(mintAmount + 1);
   };
 
   return (
-    <div className="w-full py-10 sm:py-20 flex justify-center items-center">
-      <div className="max-w-screen-2xl relative w-full mx-5 grid place-content-center">
-        <div className="bg-[#0399FC] rounded-2xl text-white p-5 text-center h-72 max-w-sm mx-auto">
-          <p className="text-lg font-Carter">
-            With the decentralisation of Kickstarters, Incubations & Launchpads,
-            Fred will be consistently evolving and developing the Fred-Ecosystem
-            (Frecosystem) to benefit all holders, investors & partners.
-          </p>
-        </div>
-        <div className="py-8 bg-[#7BDCFE] px-10 text-center rounded-md shadow-lg transform -translate-y-16 sm:-translate-y-24 max-w-xs mx-auto">
-          <h2 className="font-Carter text-[#075424] text-2xl mb-6 capitalize">
-            fred the turtle
-          </h2>
-          <img
-            className="w-24 h-24 rounded-full mx-auto"
-            src={chest}
-            alt="User avatar"
-          />
-          <span className="flex font-Francois mt-5 items-center rounded-full w-24  justify-center mx-auto">
-            $FRED 🐢
-          </span>
-          <span className="flex font-Francois items-center rounded-full w-24  justify-center mx-auto mt-2 mb-2">
-            #TurtleCoinEnthusiast
-          </span>
+    <div className='main'>
+      <div className='main-title'>
+        <h1 className='main-title-top'>Just Travelers Tribe</h1>
+        <h1 className='main-title-bottom'>
+          Enjoy conscious world-wide traveling services and luxury experiences
+          at the best rates while being an agent of change contributing to the
+          ecosystems preservation.
+        </h1>
+      </div>
+      <div className='main-mint'>
+        <h1>Mint early presale NFT for only $55 USD</h1>
+        <div className='main-mint-buttons'>
           <button
-            onClick={buyPresale}
-            className="rounded-md font-Francois text-[#075424] bg-[#b8e220] hover:bg-[#9bc504] ease-in-out duration-300 text-xl pt-3 pb-4 px-8 inline"
-          >
-            Enter Presale
+            className='mint-amount-button'
+            onClick={() => handleAmountChange(-1)}>
+            -
+          </button>
+          <div className='main-mint-amount'>{mintAmount}</div>
+          <button
+            className='mint-amount-button'
+            onClick={() => handleAmountChange(+1)}>
+            +
           </button>
         </div>
-
-        <img
-          src={poor}
-          alt=""
-          className="hidden lg:flex absolute top-[15%] left-0"
-        />
-        <img
-          src={rich}
-          alt=""
-          className="hidden lg:flex absolute top-[15%] right-0"
-        />
+        <button className='mint-button'>Mint</button>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ export const switchNetwork = async () => {
   try {
     await window.ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0x61" }],
+      params: [{ chainId: "0x01" }],
     });
   } catch (error) {
     if (error.code === 4902) {
@@ -13,15 +13,15 @@ export const switchNetwork = async () => {
           method: "wallet_addEthereumChain",
           params: [
             {
-              chainId: "0x61",
-              chainName: "Smart Chain - Testnet",
+              chainId: "0x01",
+              chainName: "Main net",
               nativeCurrency: {
-                name: "Binance",
-                symbol: "BNB", // 2-6 characters long
+                name: "Ethereum",
+                symbol: "ETH", // 2-6 characters long
                 decimals: 18,
               },
-              blockExplorerUrls: ["https://testnet.bscscan.com"],
-              rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
+              blockExplorerUrls: ["https://etherscan.com"],
+              rpcUrls: ["https://rpc.ankr.com/eth"],
             },
           ],
         });

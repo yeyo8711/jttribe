@@ -1,0 +1,58 @@
+.specialty-top {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 100px;
+  margin-top: 100px;
+  font-weight: 900;
+}
+.specialty-top-image-holder {
+  display: flex;
+  justify-content: center;
+}
+.specialty-top-image {
+  max-width: 200px;
+  margin: 10px;
+}
+
+.specialty-bottom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 15px;
+  margin: 35px;
+  justify-content: center;
+}
+
+.specialty-card {
+  padding: 10px;
+  border-radius: 8px;
+
+  min-width: 300px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(105, 116, 116);
+  box-shadow: rgba(100, 100, 100, 0.35) 0px 5px 15px;
+}
+.specialty-card-image {
+  max-width: 100px;
+  max-height: 100px;
+}
+.specialty-card-title {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-weight: 800;
+  margin: 10px;
+}
+
+.specialty-card-text {
+  text-align: center;
+  font-size: 15px;
+  color: white;
+  font-weight: 800;
+  margin: 10px;
+}

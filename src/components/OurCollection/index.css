@@ -1,0 +1,26 @@
+.ourcollection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  padding: 50px;
+}
+.ourcollection-title {
+  font-size: 100px;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  padding: 50px;
+}
+.ourcollection-image-holder {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+
+.ourcollection-img {
+  max-width: 200px;
+}

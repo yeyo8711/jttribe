@@ -1,10 +1,9 @@
 {
   "name": "Presale",
   "version": "0.1.0",
-  "homepage": "https://www.thebnbturtle.com/presale",
+  "homepage": "",
   "private": true,
   "dependencies": {
-    "@rainbow-me/rainbowkit": "^0.8.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -15,8 +14,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-social-icons": "^5.15.0",
     "react-toastify": "^9.1.1",
-    "tailwind-scrollbar": "^2.0.1",
     "wagmi": "^0.9.4",
     "web-vitals": "^2.1.4"
   },
@@ -43,10 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8"
   }
 }
