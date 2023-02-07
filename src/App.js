@@ -37,10 +37,6 @@ function App() {
   // Web3Modal Ethereum Client
   const ethereumClient = new EthereumClient(wagmiClient, chains);
 
-  const staticProvider = new ethers.providers.JsonRpcProvider(
-    "https://rpc.ankr.com/eth"
-  );
-
   return (
     <WagmiConfig client={wagmiClient}>
       <Header />

@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header className='header-main'>
-      <div className='header-title'>
+      <div className='header-title roll-in-left '>
         <h1>JT-Tribe</h1>
       </div>
       <div className='header-sections'>

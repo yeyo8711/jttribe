@@ -6,14 +6,14 @@ import ContextProvider from "./context/appContext";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { Web3Modal } from "@web3modal/react";
 import { modalConnectors, walletConnectProvider } from "@web3modal/ethereum";
-import { bsc } from "wagmi/chains";
+import { mainnet } from "wagmi/chains";
 import { EthereumClient } from "@web3modal/ethereum";
 
-const chains = [bsc];
+const chains = [mainnet];
 
 // Wagmi client
 const { provider } = configureChains(
-  [bsc],
+  [mainnet],
   [walletConnectProvider({ projectId: "a2427e0c1e47f2fdf878366cb31eaf25" })]
 );
 
@@ -34,7 +34,7 @@ root.render(
         <App />
       </ContextProvider>
       <Web3Modal
-        projectId="a2427e0c1e47f2fdf878366cb31eaf25"
+        projectId='a2427e0c1e47f2fdf878366cb31eaf25'
         ethereumClient={ethereumClient}
       />
     </WagmiConfig>

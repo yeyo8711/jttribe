@@ -24,7 +24,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div className='aboutus-right'>
-        <div className='aboutus-title'>About Us JT-Tribe</div>
+        <div className='aboutus-title text-focus-in'>About Us JT-Tribe</div>
 
         <div className='aboutus-text'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
