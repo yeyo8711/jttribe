@@ -90,3 +90,131 @@
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
   }
 }
+@media (max-width: 768px) {
+  .specialty-top {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 100px;
+    font-weight: 900;
+  }
+  .specialty-top-image-holder {
+    display: flex;
+    justify-content: center;
+  }
+  .specialty-top-image {
+    max-width: 100px;
+    margin: 10px;
+  }
+
+  .specialty-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    align-items: center;
+    text-align: center;
+  }
+
+  .specialty-card {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    min-height: 150px;
+    max-height: 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .specialty-card-image {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .specialty-card-title {
+    text-align: center;
+    font-size: 15px;
+    color: rgb(3, 3, 3);
+    font-weight: 800;
+    margin: 5px;
+  }
+
+  .specialty-card-text {
+    text-align: center;
+    font-size: 10px;
+    color: rgb(14, 13, 13);
+    font-weight: 500;
+    margin: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .specialty-top {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 100px;
+    font-weight: 900;
+  }
+  .specialty-top-image-holder {
+    display: flex;
+    justify-content: center;
+  }
+  .specialty-top-image {
+    max-width: 100px;
+    margin: 10px;
+  }
+
+  .specialty-bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    align-items: center;
+    text-align: center;
+  }
+
+  .specialty-card {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    min-height: 150px;
+    max-height: 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  .specialty-card-image {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .specialty-card-title {
+    text-align: center;
+    font-size: 15px;
+    color: rgb(3, 3, 3);
+    font-weight: 800;
+    margin: 5px;
+  }
+
+  .specialty-card-text {
+    text-align: center;
+    font-size: 10px;
+    color: rgb(14, 13, 13);
+    font-weight: 500;
+    margin: 10px;
+  }
+}

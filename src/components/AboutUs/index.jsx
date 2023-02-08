@@ -4,27 +4,28 @@ import image from "../../assets/presale.jpeg";
 
 const AboutUs = () => {
   return (
-    <div className='aboutus'>
+    <div className='aboutus' id='about'>
       <div className='aboutus-left'>
-        <div>
-          <div>
+        <div className='aboutus-images'>
+          <div className='aboutus-image-holder'>
             <img src={image} alt='' className='aboutus-image' />
           </div>
           <div>
             <img src={image} alt='' className='aboutus-image' />
           </div>
-        </div>
-        <div>
-          <div>
-            <img src={image} alt='' className='aboutus-image' />
-          </div>
-          <div>
-            <img src={image} alt='' className='aboutus-image' />
+
+          <div className='aboutus-image-holder'>
+            <div>
+              <img src={image} alt='' className='aboutus-image' />
+            </div>
+            <div>
+              <img src={image} alt='' className='aboutus-image' />
+            </div>
           </div>
         </div>
       </div>
       <div className='aboutus-right'>
-        <div className='aboutus-title text-focus-in'>About Us JT-Tribe</div>
+        <div className='aboutus-title text-focus-in'>About Us: JT-Tribe</div>
 
         <div className='aboutus-text'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

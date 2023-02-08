@@ -200,3 +200,221 @@
     transform: translate(0);
   }
 }
+
+@media (max-width: 768px) {
+  .main-title {
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .main-title-top {
+    font-size: 70px;
+    font-weight: 900;
+    max-width: 80vw;
+  }
+  .main-title-bottom {
+    font-size: 30px;
+    max-width: 50vw;
+    font-weight: 500;
+  }
+
+  .main-mint {
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-mint h1 {
+    font-size: 30px;
+    max-width: 50%;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  .main-mint-buttons {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mint-amount-button {
+    min-height: 100%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .main-mint-amount {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .mint-amount-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    width: 50px;
+    height: 30px;
+    background-color: #725960;
+  }
+
+  .mint-amount-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .mint-button {
+    background-image: linear-gradient(
+      to right,
+      #da22ff 0%,
+      #9733ee 51%,
+      #da22ff 100%
+    );
+    margin: 10px;
+    padding: 15px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    height: 80px;
+    width: 150px;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .mint-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+}
+@media (max-width: 480px) {
+  .main-title {
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .main-title-top {
+    font-size: 60px;
+    font-weight: 900;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  .main-title-bottom {
+    font-size: 30px;
+    max-width: 50vw;
+    font-weight: 500;
+  }
+
+  .main-mint {
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-mint h1 {
+    font-size: 30px;
+    max-width: 50%;
+    word-wrap: break-word;
+  }
+
+  .main-mint-buttons {
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mint-amount-button {
+    min-height: 100%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .main-mint-amount {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .mint-amount-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    width: 50px;
+    height: 30px;
+    background-color: #725960;
+  }
+
+  .mint-amount-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .mint-button {
+    background-image: linear-gradient(
+      to right,
+      #da22ff 0%,
+      #9733ee 51%,
+      #da22ff 100%
+    );
+    margin: 10px;
+    padding: 15px 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    height: 80px;
+    width: 150px;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .mint-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+}

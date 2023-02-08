@@ -4,7 +4,7 @@ export const switchNetwork = async () => {
   try {
     await window.ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: "0x01" }],
+      params: [{ chainId: "0x1" }],
     });
   } catch (error) {
     if (error.code === 4902) {
@@ -13,7 +13,7 @@ export const switchNetwork = async () => {
           method: "wallet_addEthereumChain",
           params: [
             {
-              chainId: "0x01",
+              chainId: "0x1",
               chainName: "Main net",
               nativeCurrency: {
                 name: "Ethereum",

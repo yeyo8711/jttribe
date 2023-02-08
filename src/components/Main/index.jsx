@@ -9,24 +9,24 @@ const Main = () => {
   const [mintAmount, setMintAmount] = useState(1);
 
   // Contract interactions
-  const staticProvider = new ethers.providers.JsonRpcProvider(
-    "https://rpc.ankr.com/eth"
-  );
+
   const mintContract = "0xBA00E8CDE3DE3172910421C353196A66CA9C7F2E";
   const mint = async () => {
     if (!signer) return;
     const contract = new ethers.Contract(mintContract, abi, signer);
-    const presalePrice = await contract.getMintEarlyPriceWei();
+    const presalePrice = await contract.getTotalEarlyPrice();
 
     const value = (
       ethers.utils.formatEther(presalePrice) * Number(mintAmount)
     ).toString();
 
-    await contract.mintEarlySale(
+    console.log(value);
+
+    /* await contract.mintEarlySale(
       mintAmount,
       ["0x547489677f8141edfb9a5f47a8daff8ff26e91ea269ccc475ce56140fccaa391"],
       { value: ethers.utils.parseEther(value) }
-    );
+    ); */
   };
 
   const handleAmountChange = (change) => {
@@ -37,7 +37,7 @@ const Main = () => {
   };
 
   return (
-    <div className='main'>
+    <div className='main' id='home'>
       <div className='main-title'>
         <h1 className='main-title-top tracking-in-expand-fwd '>
           Just Travelers Tribe

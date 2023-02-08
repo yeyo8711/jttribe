@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import { ethers } from "ethers";
+
 import OurSpecialty from "./components/OurSpecialty";
-import { useAccount } from "wagmi";
+//import { useAccount } from "wagmi";
 import AboutUs from "./components/AboutUs";
 import {
   EthereumClient,
@@ -15,12 +15,20 @@ import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet } from "wagmi/chains";
 import OurCollection from "./components/OurCollection";
 import Footer from "./components/Footer";
-
-const mintContract = "0xBA00E8CDE3DE3172910421C353196A66CA9C7F2E";
+import { switchNetwork } from "./utils";
 
 function App() {
   const chains = [mainnet];
-  const { address } = useAccount();
+  //const { address } = useAccount();
+
+  useEffect(() => {
+    window.ethereum.on("chainChanged", (chainId) => {
+      if (chainId !== "0x1") {
+        alert("Please make sure your are on the right network");
+        switchNetwork();
+      }
+    });
+  }, []);
 
   // Wagmi client
   const { provider } = configureChains(
@@ -38,18 +46,22 @@ function App() {
   const ethereumClient = new EthereumClient(wagmiClient, chains);
 
   return (
-    <WagmiConfig client={wagmiClient}>
-      <Header />
-      <Main />
-      <OurSpecialty />
-      <AboutUs />
-      <OurCollection />
-      <Footer />
-      <Web3Modal
-        projectId='1db7e84d451b8724016f1839cd914abd'
-        ethereumClient={ethereumClient}
-      />
-    </WagmiConfig>
+    <div className='App'>
+      <WagmiConfig client={wagmiClient}>
+        <Header />
+        <Main />
+        <OurSpecialty />
+        <AboutUs />
+        <OurCollection />
+        <Footer />
+        <div className='modal'>
+          <Web3Modal
+            projectId='1db7e84d451b8724016f1839cd914abd'
+            ethereumClient={ethereumClient}
+          />
+        </div>
+      </WagmiConfig>{" "}
+    </div>
   );
 }
 

@@ -7,7 +7,9 @@ const OurSpecialty = () => {
   const [animated, setAnimated] = useState(0);
   return (
     <div>
-      <div className={`specialty-top`}>Our Specialty</div>
+      <div className={`specialty-top`} id='jtt'>
+        Our Specialty
+      </div>
       <div className='specialty-top-image-holder'>
         <img src={image} alt='img' className='specialty-top-image' />
       </div>
