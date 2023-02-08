@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useSigner } from "wagmi";
 import "./main.css";
 import abi from "../../contracts/abi.json";
+import { useAccount } from "wagmi";
+import whitelist from "../../constants/whitelist.json";
 
 const Main = () => {
   const { data: signer } = useSigner();
   const [mintAmount, setMintAmount] = useState(1);
+  const [proofAddress, setProofAddress] = useState(null);
+  const { address } = useAccount();
+  const userAddress = address;
 
   // Contract interactions
 
   const mintContract = "0xBA00E8CDE3DE3172910421C353196A66CA9C7F2E";
+
   const mint = async () => {
-    if (!signer) return;
+    if (!signer || !userAddress) return;
+
     const contract = new ethers.Contract(mintContract, abi, signer);
     const presalePrice = await contract.getTotalEarlyPrice();
 
@@ -20,13 +27,11 @@ const Main = () => {
       ethers.utils.formatEther(presalePrice) * Number(mintAmount)
     ).toString();
 
-    console.log(value);
+    setProofAddress(whitelist.proofs[userAddress].proof);
 
-    /* await contract.mintEarlySale(
-      mintAmount,
-      ["0x547489677f8141edfb9a5f47a8daff8ff26e91ea269ccc475ce56140fccaa391"],
-      { value: ethers.utils.parseEther(value) }
-    ); */
+    await contract.mintEarlySale(mintAmount, proofAddress, {
+      value: ethers.utils.parseEther(value),
+    });
   };
 
   const handleAmountChange = (change) => {
